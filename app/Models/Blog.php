@@ -13,5 +13,6 @@ class Blog extends Model
         'title',
         'time',
         'description',
+        'img',
     ];
 }

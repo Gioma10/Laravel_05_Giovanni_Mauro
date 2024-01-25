@@ -9,22 +9,36 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="POST" action="{{route('blogs')}}">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form method="POST" action="{{ route('blogs') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                      <label class="form-label">Titolo:</label>
-                      <input name="title" type="text" class="form-control" aria-describedby="emailHelp">
+                        <label class="form-label">Titolo:</label>
+                        <input name="title" type="text" class="form-control" ">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tempo di preparazione:</label>
-                        <input name="time" type="text" class="form-control" aria-describedby="emailHelp">
+                        <input name="time" type="text" class="form-control" ">
                     </div>
+                    <label for="flotingtextarea2" class="form-label">Descrizione:</label>
                     <div class="mb-3 form-floating">
-                        <textarea name="description" class="form-control" placeholder="descrizione" id="floatingTextarea2" style="height: 200px"></textarea>
-                      </div>
-
+                        <textarea name="description" class="form-control" placeholder="descrizione" id="floatingTextarea2"
+                            style="height: 200px"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Immagine:</label>
+                        <input name="img" type="file" class="form-control">
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+                </form>
             </div>
         </div>
     </div>
