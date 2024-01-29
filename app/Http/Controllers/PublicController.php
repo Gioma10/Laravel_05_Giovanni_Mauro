@@ -9,6 +9,6 @@ class PublicController extends Controller
 {
     public function index(){
         $blogs = Blog::all();
-        return view('index', compact('blogs'));
+        return view('home.index', compact('blogs'));
     }
 }

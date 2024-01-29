@@ -10,7 +10,7 @@ class BlogsController extends Controller
 {
     public function newBlog(){
 
-        return view('newBlog');
+        return view('blog.newBlog');
     }
 
     public function save(BlogRequest $request){
@@ -20,7 +20,7 @@ class BlogsController extends Controller
             'description'=> $request -> input('description'),
             'img'=> $request -> file('img')->store('public/img'),
         ]);
-        return redirect(route('home'))->with('message', 'Blog aggiunto con successo!!');
+        return redirect(route('home.home'))->with('message', 'Blog aggiunto con successo!!');
     }
 
     public function message(){

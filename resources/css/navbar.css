@@ -63,3 +63,7 @@ nav{
     background: #07051a;
     color: white;
 }
+
+ul{
+    list-style-type: none;
+}

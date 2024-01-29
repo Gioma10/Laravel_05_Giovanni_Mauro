@@ -13,10 +13,17 @@
                 <a class="nav-link" href="{{route('new-blog')}}">New blog</a>
               </li>
             </ul>
-            <form class="search">
-              <input class="i-search" type="search" required>
-              <i class="fa fa-search"></i>
-            </form>
+            <ul class="d-flex h-100 align-items-center my-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="{{route('login')}}">Accedi/</a>
+              </li>
+              <li class="nav-item me-3">
+                <a class="nav-link" href="{{route('register')}}">Registrati</a>
+              </li>
+              <li class="nav-item me-3">
+                <a class="nav-link" href="{{route('logout')}}">Logout</a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
