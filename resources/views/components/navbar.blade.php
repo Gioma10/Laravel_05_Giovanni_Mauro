@@ -14,15 +14,26 @@
               </li>
             </ul>
             <ul class="d-flex h-100 align-items-center my-auto">
+              @guest
+                  
               <li class="nav-item ">
                 <a class="nav-link" href="{{route('login')}}">Accedi/</a>
               </li>
               <li class="nav-item me-3">
                 <a class="nav-link" href="{{route('register')}}">Registrati</a>
               </li>
-              <li class="nav-item me-3">
-                <a class="nav-link" href="{{route('logout')}}">Logout</a>
+              @endguest
+              <li class="nav-item ">
+                <a class="nav-link" href="{{route('login')}}">
+                  @auth
+                      Benvenuto {{Auth::user()->name}}
+                  @endauth
+                  </a>
               </li>
+              <li class="nav-item me-3 ms-5">
+                <a class="nav-link" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+              </li>
+              <form id="form-logout" action="{{route('logout')}}" method="POST" class="d-none">@csrf</form>
             </ul>
           </div>
         </div>

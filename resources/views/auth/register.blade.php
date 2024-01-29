@@ -1,5 +1,4 @@
 <x-layout>
-
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
@@ -10,7 +9,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-6">
-                {{-- @if ($errors->any())
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -18,7 +17,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    @endif --}}
+                @endif
                     <form method="POST" action="{{route('register')}}">
                         @csrf
                         <div class="mb-3">
@@ -37,6 +36,7 @@
                             <label class="form-label">Conferma password:</label>
                             <input name="password_confirmation" type="password" class="form-control" ">
                         </div>
+                        <button type="submit" class="btn btn-primary">Registrati</button>
                     </form>
                 </div>
             </div>
