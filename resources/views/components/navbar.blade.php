@@ -12,6 +12,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{route('new-blog')}}">New blog</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('category-create')}}">New category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('category-index')}}">All category</a>
+              </li>
             </ul>
             <ul class="d-flex h-100 align-items-center my-auto">
               @guest

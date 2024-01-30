@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
-                <h1 class="text-center display-3">Aggiungi un articolo!</h1>
+                <h1 class="text-center display-3">Modifica {{$category->name}}!</h1>
             </div>
         </div>
     </div>
@@ -28,28 +28,18 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('blogs') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('category-update', $category)}}">
+                    @method('put')
+            
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">Titolo:</label>
-                        <input name="title" type="text" class="form-control" ">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Tempo di preparazione:</label>
-                        <input name="time" type="text" class="form-control" ">
-                    </div>
-                    <label for="flotingtextarea2" class="form-label">Descrizione:</label>
-                    <div class="mb-3 form-floating">
-                        <textarea name="description" class="form-control" placeholder="descrizione" id="floatingTextarea2"
-                            style="height: 200px"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Immagine:</label>
-                        <input name="img" type="file" class="form-control">
+                        <label class="form-label">Nuovo nome:</label>
+                        <input name="name" type="text" class="form-control" value="{{$category->name}}">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-</x-layout>
+</x-lyout>
+
