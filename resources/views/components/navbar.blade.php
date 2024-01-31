@@ -10,13 +10,19 @@
                 <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('new-blog')}}">New blog</a>
+                <a class="nav-link" href="{{route('blog-create')}}">New blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('blog-index')}}">All blog</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('category-create')}}">New category</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('category-index')}}">All category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('all-users')}}">All users</a>
               </li>
             </ul>
             <ul class="d-flex h-100 align-items-center my-auto">

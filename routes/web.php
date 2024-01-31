@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Blogs;
-use App\Http\Controllers\BlogsController;
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,10 @@ use App\Http\Controllers\PublicController;
 
 Route::get('/', [PublicController::class, 'index'])-> name('home');
 
-//Rotte blog
-Route::get('/new-blog', [BlogsController::class, 'newBlog'])-> name('new-blog');
-Route::post('/new-blog/blogs', [BlogsController::class, 'save'])-> name('blogs');
+//Rotte users
+Route::get('/all-user', [PublicController::class, 'allUser'])-> name('all-users');
+Route::delete('/user/delete/{user}', [PublicController::class, 'destroy'])->name('user-delete');
+
 
 //Rotte categorie
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category-create');
@@ -31,6 +32,16 @@ Route::get('/category/show/{category}', [CategoryController::class, 'show'])->na
 Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category-edit');
 Route::put('/category/update/{category}', [CategoryController::class, 'update'])->name('category-update');
 Route::delete('/category/delete/{category}', [CategoryController::class, 'destroy'])->name('category-delete');
+
+
+//Rotte blog
+Route::get('/blog/create', [BlogController::class, 'create'])->name('blog-create');
+Route::post('/blog/store', [BlogController::class, 'store'])->name('blog-store');
+Route::get('/blog/index', [BlogController::class, 'index'])->name('blog-index');
+Route::get('/blog/show/{blog}', [BlogController::class, 'show'])->name('blog-show');
+Route::get('/blog/edit/{blog}', [BlogController::class, 'edit'])->name('blog-edit');
+Route::put('/blog/update/{blog}', [BlogController::class, 'update'])->name('blog-update');
+Route::delete('/blog/delete/{blog}', [BlogController::class, 'destroy'])->name('blog-delete');
 
 
 
