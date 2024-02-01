@@ -43,6 +43,16 @@
                         <textarea name="description" class="form-control" placeholder="descrizione" id="floatingTextarea2"
                             style="height: 200px"></textarea>
                     </div>
+                    <div class="mb-3 form-floating">
+                        <label class="form-label" for="">Seleziona categoria:</label>
+                        <select class="form-control" name="categories[]" multiple id="selectCategory">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">
+                                    {{$category->name}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label">Immagine:</label>
                         <input name="img" type="file" class="form-control">

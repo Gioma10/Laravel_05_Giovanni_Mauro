@@ -36,6 +36,10 @@
                   </div>
                 </div>
                 @endforeach
+                <p>Categoria:</p>
+                    @foreach ($blog->categories as $category)
+                        {{$category->name}}
+                    @endforeach
         </div>
     </div>
 </section>

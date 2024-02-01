@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
@@ -34,7 +35,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        $categories= Category::all();
+        return view('blog.create', compact('categories'));
     }
 
     /**
@@ -49,7 +51,13 @@ class BlogController extends Controller
             'img'=> $request -> file('img')->store('public/img'),
             'user_id'=> Auth::user()->id,
         ]);
+        // dd($request->categories);
+        foreach ($request->categories as $category) {
+            
+            $blog->categories()->attach($category);
+        }
         return redirect(route('home'))->with('message', 'Blog aggiunto con successo!!');
+        
     }
 
     /**
@@ -84,6 +92,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        foreach ($blog->categories as $category) {
+            $category->blogs()->detach($blog->id);
+        };
         $blog->delete();
         return redirect(route('blog-index'))->with('message', 'Blog eliminato con successo!!');
     }
